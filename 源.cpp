@@ -17,12 +17,12 @@ void Infinite();
 int main()
 {
 
-	SetConsoleTitle(L"made by Íõ¿¡ÒÕ  version 0.50");
+	SetConsoleTitle(L"made by A2U4F version 0.50");
 	int col=10;
 
 	while (col!=0)
 	{
-		cout << "Ñ¡Ôñ¼ÆËã·½·¨" << endl
+		cout << "Please choose the way to calculate PI:" << endl
 			<< "1......Leibniz_formula" << endl
 			<< "2......Piece_of_cycle" << endl
 			<< "3......Line_of_cycle" << endl
@@ -174,7 +174,7 @@ void Random_point()
 			if (pow(x, 2) + pow(y, 2) <= 1)init += 1;
 		}
 		system("cls");
-		cout << "½ø¶ÈÌõ" << timeo << "%";
+		cout << "è¿›åº¦æ¡" << timeo << "%";
 	}
 
 	cout << endl;
