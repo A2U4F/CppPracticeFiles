@@ -7,16 +7,16 @@ int intDet_Solve(vector<vector<int>> , int);
 int main()
 {
 	int n;
-	cout << "ÇëÊäÈëĞĞÁĞÊ½½×Êı:";
+	cout << "è¯·è¾“å…¥è¡Œåˆ—å¼é˜¶æ•°:";
 	cin >> n;
 	vector<vector<int>> Determinant(n, vector<int>(n, 0));
-	cout << "ÇëÊäÈëĞĞÁĞÊ½:" << endl;
+	cout << "è¯·è¾“å…¥è¡Œåˆ—å¼:" << endl;
 	for (int i = 0; i < n; i++) {
 		for (int j = 0; j < n; j++) {
 			cin >> Determinant[i][j];
 		}
 	}
-	cout << endl << "½á¹ûÊÇ:" << intDet_Solve(Determinant, n);
+	cout << endl << "ç»“æœæ˜¯:" << intDet_Solve(Determinant, n);
 	return 0;
 }
 
