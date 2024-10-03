@@ -79,8 +79,8 @@ double Calculator(vector<char> str)
             i = j - 1;
         }
 
-        // 如果遇到运算符或者已到达表达式末尾
-        if ((!isdigit(str[i]) && str[i] != '.') || i == str.size() - 1) {
+        // 如果遇到运算符或者已到达表达式末尾的'='
+        if (!isdigit(str[i]) && str[i] != '.') {
             double last;
 
             // 处理小数
