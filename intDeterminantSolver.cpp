@@ -2,67 +2,67 @@
 #include <vector>
 using namespace std;
 
-// ¼ÆËã·½Õó£¨ĞĞÁĞÊ½£©µÄÖµ
+// è®¡ç®—æ–¹é˜µï¼ˆè¡Œåˆ—å¼ï¼‰çš„å€¼
 int intDet_Solve(vector<vector<int>>, int);
 
 int main()
 {
-    int n; // ĞĞÁĞÊ½µÄ½×Êı
-    cout << "ÇëÊäÈëĞĞÁĞÊ½½×Êı:";
+    int n; // è¡Œåˆ—å¼çš„é˜¶æ•°
+    cout << "è¯·è¾“å…¥è¡Œåˆ—å¼é˜¶æ•°:";
     cin >> n;
 
-    // ´´½¨n x nµÄ¶şÎ¬ÏòÁ¿±íÊ¾ĞĞÁĞÊ½£¬³õÊ¼»¯Îª0
+    // åˆ›å»ºn x nçš„äºŒç»´å‘é‡è¡¨ç¤ºè¡Œåˆ—å¼ï¼Œåˆå§‹åŒ–ä¸º0
     vector<vector<int>> Determinant(n, vector<int>(n, 0));
 
-    cout << "ÇëÊäÈëĞĞÁĞÊ½:" << endl;
+    cout << "è¯·è¾“å…¥è¡Œåˆ—å¼:" << endl;
 
-    // ÊäÈëĞĞÁĞÊ½ÔªËØ
+    // è¾“å…¥è¡Œåˆ—å¼å…ƒç´ 
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < n; j++) {
             cin >> Determinant[i][j];
         }
     }
 
-    // Êä³ö½á¹û£¬µ÷ÓÃĞĞÁĞÊ½Çó½âº¯Êı
-    cout << endl << "½á¹ûÊÇ:" << intDet_Solve(Determinant, n);
+    // è¾“å‡ºç»“æœï¼Œè°ƒç”¨è¡Œåˆ—å¼æ±‚è§£å‡½æ•°
+    cout << endl << "ç»“æœæ˜¯:" << intDet_Solve(Determinant, n);
 
     return 0;
 }
 
-// µİ¹éÇó½âĞĞÁĞÊ½µÄÖµ£¬DeterminantÊÇĞĞÁĞÊ½£¬nÊÇÆä½×Êı
+// é€’å½’æ±‚è§£è¡Œåˆ—å¼çš„å€¼ï¼ŒDeterminantæ˜¯è¡Œåˆ—å¼ï¼Œnæ˜¯å…¶é˜¶æ•°
 int intDet_Solve(vector<vector<int>> Determinant, int n)
 {
-    int ans = 0; // ´æ´¢ĞĞÁĞÊ½µÄÖµ
-    int a;       // ÓÃÓÚ±£´æÊ×ĞĞÔªËØµÄ·ûºÅµ÷ÕûÖµ
-    vector<vector<int>> LDeterminant = Determinant; // ±£´æÔ­Ê¼ĞĞÁĞÊ½¸±±¾
+    int ans = 0; // å­˜å‚¨è¡Œåˆ—å¼çš„å€¼
+    int a;       // ç”¨äºä¿å­˜é¦–è¡Œå…ƒç´ çš„ç¬¦å·è°ƒæ•´å€¼
+    vector<vector<int>> LDeterminant = Determinant; // ä¿å­˜åŸå§‹è¡Œåˆ—å¼å‰¯æœ¬
 
-    // Èç¹û½×ÊıÎª1£¬Ö±½Ó·µ»ØĞĞÁĞÊ½Î¨Ò»ÔªËØ
+    // å¦‚æœé˜¶æ•°ä¸º1ï¼Œç›´æ¥è¿”å›è¡Œåˆ—å¼å”¯ä¸€å…ƒç´ 
     if (n == 1) {
         return Determinant[0][0];
     }
 
-    // ±éÀúµÚÒ»ĞĞµÄÃ¿¸öÔªËØ£¬¼ÆËã¸ÃÔªËØ¶ÔÓ¦µÄ´úÊıÓà×ÓÊ½
+    // éå†ç¬¬ä¸€è¡Œçš„æ¯ä¸ªå…ƒç´ ï¼Œè®¡ç®—è¯¥å…ƒç´ å¯¹åº”çš„ä»£æ•°ä½™å­å¼
     for (int i = 0; i < n; i++) {
-        Determinant = LDeterminant; // »Ö¸´ĞĞÁĞÊ½
+        Determinant = LDeterminant; // æ¢å¤è¡Œåˆ—å¼
 
-        // ¸ù¾İiµÄÆæÅ¼ĞÔÈ·¶¨µ±Ç°ÔªËØµÄ·ûºÅ
+        // æ ¹æ®içš„å¥‡å¶æ€§ç¡®å®šå½“å‰å…ƒç´ çš„ç¬¦å·
         if (i % 2 == 1) {
-            a = -Determinant[0][i]; // ÆæÊıÎ»ÖÃ£¬·ûºÅÎª¸º
+            a = -Determinant[0][i]; // å¥‡æ•°ä½ç½®ï¼Œç¬¦å·ä¸ºè´Ÿ
         }
         else {
-            a = Determinant[0][i];  // Å¼ÊıÎ»ÖÃ£¬·ûºÅÎªÕı
+            a = Determinant[0][i];  // å¶æ•°ä½ç½®ï¼Œç¬¦å·ä¸ºæ­£
         }
 
-        // É¾³ıµ±Ç°ÁĞiµÄÔªËØ£¬²¢ÒÆ³ıµÚÒ»ĞĞ£¬ĞÎ³É×Ó¾ØÕó
+        // åˆ é™¤å½“å‰åˆ—içš„å…ƒç´ ï¼Œå¹¶ç§»é™¤ç¬¬ä¸€è¡Œï¼Œå½¢æˆå­çŸ©é˜µ
         for (int j = 1; j < n; j++) {
-            Determinant[j].erase(Determinant[j].begin() + i); // É¾³ıÁĞ
+            Determinant[j].erase(Determinant[j].begin() + i); // åˆ é™¤åˆ—
         }
-        Determinant.erase(Determinant.begin()); // É¾³ıµÚÒ»ĞĞ
+        Determinant.erase(Determinant.begin()); // åˆ é™¤ç¬¬ä¸€è¡Œ
 
-        // µİ¹éÇó½â×Ó¾ØÕóµÄĞĞÁĞÊ½²¢ÀÛ¼Ó½á¹û
+        // é€’å½’æ±‚è§£å­çŸ©é˜µçš„è¡Œåˆ—å¼å¹¶ç´¯åŠ ç»“æœ
         ans += a * intDet_Solve(Determinant, n - 1);
     }
 
-    // ·µ»Ø×îÖÕ¼ÆËãµÄĞĞÁĞÊ½Öµ
+    // è¿”å›æœ€ç»ˆè®¡ç®—çš„è¡Œåˆ—å¼å€¼
     return ans;
 }
