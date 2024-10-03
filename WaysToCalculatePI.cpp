@@ -7,24 +7,24 @@
 
 using namespace std;
 
-// º¯ÊıÉùÃ÷
-void Leibniz_formula();     // À³²¼Äá×È¹«Ê½ÇóPI
-void Piece_of_cycle();      // Ê¹ÓÃ¾ØĞÎÇøÓò½üËÆÔ²Ãæ»ıÇóPI
-void Line_of_cycle();       // Ê¹ÓÃÖ±Ïß·Ö¸îÔ²À´ÇóPI
-void Random_point();        // Ëæ»úµã·¨£¨ÃÉÌØ¿¨ÂŞ·½·¨£©ÇóPI
-void Slid_the_cycle();      // ÀûÓÃ¼¸ºÎ±ä»»ÇóPI
-void Infinite();            // ÎŞÏŞ¼¶Êı·¨ÇóPI
+// å‡½æ•°å£°æ˜
+void Leibniz_formula();     // è±å¸ƒå°¼å…¹å…¬å¼æ±‚PI
+void Piece_of_cycle();      // ä½¿ç”¨çŸ©å½¢åŒºåŸŸè¿‘ä¼¼åœ†é¢ç§¯æ±‚PI
+void Line_of_cycle();       // ä½¿ç”¨ç›´çº¿åˆ†å‰²åœ†æ¥æ±‚PI
+void Random_point();        // éšæœºç‚¹æ³•ï¼ˆè’™ç‰¹å¡ç½—æ–¹æ³•ï¼‰æ±‚PI
+void Slid_the_cycle();      // åˆ©ç”¨å‡ ä½•å˜æ¢æ±‚PI
+void Infinite();            // æ— é™çº§æ•°æ³•æ±‚PI
 
 int main()
 {
-    // ÉèÖÃ¿ØÖÆÌ¨±êÌâ
-    SetConsoleTitle(L"made by Íõ¿¡ÒÕ  version 0.50");
+    // è®¾ç½®æ§åˆ¶å°æ ‡é¢˜
+    SetConsoleTitle(L"made by ç‹ä¿Šè‰º  version 0.50");
     int col = 10;
 
-    // ²Ëµ¥Çı¶¯³ÌĞò£¬ÈÃÓÃ»§Ñ¡Ôñ¼ÆËãPIµÄ·½·¨
+    // èœå•é©±åŠ¨ç¨‹åºï¼Œè®©ç”¨æˆ·é€‰æ‹©è®¡ç®—PIçš„æ–¹æ³•
     while (col != 0)
     {
-        cout << "Ñ¡Ôñ¼ÆËã·½·¨" << endl
+        cout << "é€‰æ‹©è®¡ç®—æ–¹æ³•" << endl
             << "1......Leibniz_formula" << endl
             << "2......Piece_of_cycle" << endl
             << "3......Line_of_cycle" << endl
@@ -32,11 +32,11 @@ int main()
             << "5......Slid_the_cycle" << endl
             << "6......Infinite" << endl;
 
-        // ÓÃ»§Ñ¡Ôñ
+        // ç”¨æˆ·é€‰æ‹©
         cin >> col;
-        system("cls"); // ÇåÆÁ
+        system("cls"); // æ¸…å±
 
-        // ¸ù¾İÓÃ»§Ñ¡Ôñµ÷ÓÃÏàÓ¦µÄPI¼ÆËã·½·¨
+        // æ ¹æ®ç”¨æˆ·é€‰æ‹©è°ƒç”¨ç›¸åº”çš„PIè®¡ç®—æ–¹æ³•
         switch (col)
         {
         case 1:
@@ -61,55 +61,55 @@ int main()
             cout << "I can't find it......" << endl << endl << endl;
         }
     }
-    system("pause"); // ÔİÍ££¬µÈ´ıÓÃ»§°´¼ü
+    system("pause"); // æš‚åœï¼Œç­‰å¾…ç”¨æˆ·æŒ‰é”®
     return 0;
 }
 
-// À³²¼Äá×È¹«Ê½¼ÆËãPI
+// è±å¸ƒå°¼å…¹å…¬å¼è®¡ç®—PI
 void Leibniz_formula()
 {
-    double i = 1.0; // ·ÖÄ¸³õÊ¼Öµ
-    double pi = 0.0; // PIµÄ³õÊ¼Öµ
-    double k = 1.0;  // ·ûºÅ£¨Õı¸º½»Ìæ£©
-    double t = 1.0;  // Ã¿ÏîµÄÖµ
-    double c = 1e-8; // ¼ÆËã¾«¶È
+    double i = 1.0; // åˆ†æ¯åˆå§‹å€¼
+    double pi = 0.0; // PIçš„åˆå§‹å€¼
+    double k = 1.0;  // ç¬¦å·ï¼ˆæ­£è´Ÿäº¤æ›¿ï¼‰
+    double t = 1.0;  // æ¯é¡¹çš„å€¼
+    double c = 1e-8; // è®¡ç®—ç²¾åº¦
 
-    // ¸ù¾İÀ³²¼Äá×È¹«Ê½¼ÆËãPI£¬µ±Ã¿ÏîĞ¡ÓÚ¾«¶ÈÊ±Í£Ö¹
+    // æ ¹æ®è±å¸ƒå°¼å…¹å…¬å¼è®¡ç®—PIï¼Œå½“æ¯é¡¹å°äºç²¾åº¦æ—¶åœæ­¢
     while (fabs(t) >= c)
     {
         pi += t;
-        k = -k; // ½»Ìæ¸Ä±ä·ûºÅ
-        i += 2; // ·ÖÄ¸Ã¿´Î¼Ó2
+        k = -k; // äº¤æ›¿æ”¹å˜ç¬¦å·
+        i += 2; // åˆ†æ¯æ¯æ¬¡åŠ 2
         t = k / i;
     }
 
-    pi *= 4; // ×îÖÕPIÖµ
+    pi *= 4; // æœ€ç»ˆPIå€¼
     cout << "pi = " << pi << endl
         << "precision = " << c * 10;
 
     cout << endl << endl << endl;
 }
 
-// Ê¹ÓÃ¾ØĞÎÇøÓò½üËÆÔ²Ãæ»ı¼ÆËãPI
+// ä½¿ç”¨çŸ©å½¢åŒºåŸŸè¿‘ä¼¼åœ†é¢ç§¯è®¡ç®—PI
 void Piece_of_cycle()
 {
     double x = 0.0, y = 0.0;
-    double c = 0.001; // ²½³¤
+    double c = 0.001; // æ­¥é•¿
     double init = 0, total = 0;
     double pi;
 
-    // Ë«ÖØÑ­»·±éÀú¾ØĞÎÇøÓò£¬¼ÆËãÂäÔÚÔ²ÄÚµÄµãÊı
+    // åŒé‡å¾ªç¯éå†çŸ©å½¢åŒºåŸŸï¼Œè®¡ç®—è½åœ¨åœ†å†…çš„ç‚¹æ•°
     do {
         do {
             x += c;
             total += 1;
-            if (pow(x, 2) + pow(y, 2) <= 100) init += 1; // ÅĞ¶ÏµãÊÇ·ñÔÚÔ²ÄÚ
+            if (pow(x, 2) + pow(y, 2) <= 100) init += 1; // åˆ¤æ–­ç‚¹æ˜¯å¦åœ¨åœ†å†…
         } while (x <= 10);
         x = 0;
         y += c;
     } while (y <= 10);
 
-    // Ê¹ÓÃÔ²ÄÚµãÓë×ÜµãµÄ±ÈÖµ¼ÆËãPI
+    // ä½¿ç”¨åœ†å†…ç‚¹ä¸æ€»ç‚¹çš„æ¯”å€¼è®¡ç®—PI
     pi = 4 * (init / total);
     cout << "pi = " << pi << endl
         << "init = " << init << endl
@@ -118,11 +118,11 @@ void Piece_of_cycle()
     cout << endl << endl << endl;
 }
 
-// Ê¹ÓÃÖ±Ïß·Ö¸îÔ²µÄ·½Ê½¼ÆËãPI
+// ä½¿ç”¨ç›´çº¿åˆ†å‰²åœ†çš„æ–¹å¼è®¡ç®—PI
 void Line_of_cycle()
 {
     double x = 0.0, y = 0.0;
-    double c = 0.00001; // ²½³¤
+    double c = 0.00001; // æ­¥é•¿
     double init = 0, total = 0, added = 0;
     double pi;
 
@@ -133,11 +133,11 @@ void Line_of_cycle()
         x += c;
     }
 
-    total = pow(added, 2); // ¼ÆËã×ÜµãÊı
+    total = pow(added, 2); // è®¡ç®—æ€»ç‚¹æ•°
 
     x = 10;
 
-    // ¼ÆËãÂäÔÚÔ²ÄÚµÄµãÊı
+    // è®¡ç®—è½åœ¨åœ†å†…çš„ç‚¹æ•°
     while (y <= 10) {
         while (pow(x, 2) + pow(y, 2) >= 100) {
             added -= 1;
@@ -147,7 +147,7 @@ void Line_of_cycle()
         y += c;
     }
 
-    // ¼ÆËãPI
+    // è®¡ç®—PI
     pi = 4 * (init / total);
     cout << "pi = " << pi << endl
         << "init = " << init << endl
@@ -156,31 +156,31 @@ void Line_of_cycle()
     cout << endl << endl << endl;
 }
 
-// Ê¹ÓÃËæ»úµã·½·¨£¨ÃÉÌØ¿¨ÂŞ·½·¨£©¼ÆËãPI
+// ä½¿ç”¨éšæœºç‚¹æ–¹æ³•ï¼ˆè’™ç‰¹å¡ç½—æ–¹æ³•ï¼‰è®¡ç®—PI
 void Random_point()
 {
-    srand(time(0) * 100 + 56); // ³õÊ¼»¯Ëæ»úÊıÖÖ×Ó
+    srand(time(0) * 100 + 56); // åˆå§‹åŒ–éšæœºæ•°ç§å­
 
-    long long int c = 1000000; // Ã¿´Îµü´úµÄµãÊı
+    long long int c = 1000000; // æ¯æ¬¡è¿­ä»£çš„ç‚¹æ•°
     long double init = 0;
     long double total = 0;
     double pi = 0.0;
 
-    // ½øĞĞ100ÂÖÄ£Äâ£¬Ã¿ÂÖc´ÎµãÍ¶ÖÀ
+    // è¿›è¡Œ100è½®æ¨¡æ‹Ÿï¼Œæ¯è½®cæ¬¡ç‚¹æŠ•æ·
     for (int timeo = 1; timeo <= 100; timeo++) {
         for (long long int timei = 1; timei <= c; timei++) {
-            double x = rand() / static_cast<double>(32767); // Ëæ»úÉú³Éx×ø±ê
-            double y = rand() / static_cast<double>(32767); // Ëæ»úÉú³Éy×ø±ê
+            double x = rand() / static_cast<double>(32767); // éšæœºç”Ÿæˆxåæ ‡
+            double y = rand() / static_cast<double>(32767); // éšæœºç”Ÿæˆyåæ ‡
             total += 1;
-            if (pow(x, 2) + pow(y, 2) <= 1) init += 1; // ÅĞ¶ÏµãÊÇ·ñÔÚÔ²ÄÚ
+            if (pow(x, 2) + pow(y, 2) <= 1) init += 1; // åˆ¤æ–­ç‚¹æ˜¯å¦åœ¨åœ†å†…
         }
         system("cls");
-        cout << "½ø¶ÈÌõ" << timeo << "%";
+        cout << "è¿›åº¦æ¡" << timeo << "%";
     }
 
     cout << endl;
 
-    // ¸ù¾İÔ²ÄÚµãÓë×ÜµãµÄ±ÈÖµ¼ÆËãPI
+    // æ ¹æ®åœ†å†…ç‚¹ä¸æ€»ç‚¹çš„æ¯”å€¼è®¡ç®—PI
     pi = 4 * (init / total);
     cout << "pi = " << pi << endl
         << "init = " << init << endl
@@ -189,14 +189,14 @@ void Random_point()
     cout << endl << endl << endl;
 }
 
-// Í¨¹ı¼¸ºÎ±ä»»µü´ú·½Ê½¼ÆËãPI
+// é€šè¿‡å‡ ä½•å˜æ¢è¿­ä»£æ–¹å¼è®¡ç®—PI
 void Slid_the_cycle()
 {
     double cosrate = 0.50;
     double line = 6;
     double pi = 0.50;
 
-    // Í¨¹ıµü´ú¼¸ºÎ±ä»»¼ÆËãPI
+    // é€šè¿‡è¿­ä»£å‡ ä½•å˜æ¢è®¡ç®—PI
     for (int t = 1; t <= 10; t++) {
         cosrate = sqrt((cosrate + 1) / 2);
         line *= sqrt(2 / (cosrate + 1));
@@ -210,7 +210,7 @@ void Slid_the_cycle()
     cout << endl << endl << endl;
 }
 
-// ¼ÆËãĞèÒªµÄÏîÊı
+// è®¡ç®—éœ€è¦çš„é¡¹æ•°
 int count(int n)
 {
     int i = 1;
@@ -223,26 +223,26 @@ int count(int n)
         sum = sum + log10(a / b);
         i++;
         if (sum > n + 1) {
-            return i; // ·µ»Ø´ïµ½ËùĞè¾«¶ÈËùĞèµÄÏîÊı
+            return i; // è¿”å›è¾¾åˆ°æ‰€éœ€ç²¾åº¦æ‰€éœ€çš„é¡¹æ•°
         }
     }
 }
 
-// ÎŞÏŞ¼¶Êı·¨¼ÆËãPI
+// æ— é™çº§æ•°æ³•è®¡ç®—PI
 void Infinite()
 {
     cout << "Please enter the digit you want to calculate:" << endl;
 #define NODE_NUM 550
-    list<int> num(NODE_NUM, 0); // ³õÊ¼»¯Á´±í£¬´æ´¢¼ÆËãÖĞ¼äÖµ
-    list<int> sum(NODE_NUM, 0); // ´æ´¢½á¹û
+    list<int> num(NODE_NUM, 0); // åˆå§‹åŒ–é“¾è¡¨ï¼Œå­˜å‚¨è®¡ç®—ä¸­é—´å€¼
+    list<int> sum(NODE_NUM, 0); // å­˜å‚¨ç»“æœ
     int print;
     cin >> print;
-    int cnt = count(print); // ¼ÆËãËùĞèÏîÊı
+    int cnt = count(print); // è®¡ç®—æ‰€éœ€é¡¹æ•°
 
     num.front() = 2;
     sum.front() = 2;
 
-    // µü´ú¼ÆËãÃ¿Ò»ÏîµÄÖµ
+    // è¿­ä»£è®¡ç®—æ¯ä¸€é¡¹çš„å€¼
     for (int i = 1; i <= cnt; ++i)
     {
         int ret = 0;
@@ -274,7 +274,7 @@ void Infinite()
         }
     }
 
-    // Êä³öPIµÄ¼ÆËã½á¹û
+    // è¾“å‡ºPIçš„è®¡ç®—ç»“æœ
     cout << sum.front() << '.';
     list<int>::iterator it = sum.begin();
     it++;
