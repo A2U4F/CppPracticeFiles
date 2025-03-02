@@ -1,5 +1,7 @@
 # 编程实战练习
 
+这是我练习编写`C++`代码的文件，所有注释都是AI生成的。以下是各个项目与项目里我记忆深刻的地方
+
 ### [整数方阵求行列式](https://github.com/A2U4F/CppPracticeFiles/blob/main/intDeterminantSolver.cpp)
 
 0. 使用行列式的递归定义直接求解
@@ -23,5 +25,6 @@
 ### [枚举求解日历拼图](https://github.com/A2U4F/CppPracticeFiles/blob/main/DatePuzzleSolver.cpp)
 
 0. 日历拼图太难了，所以写了这个算法
-1. 其中最关键的`SOLVE()`方法是用的经过`Check()`方法剪枝的回溯算法，但效率极低，计算3月6日周四的解法用了55min(在我的电脑配置下)
+1. 其中最关键的`SOLVE()`方法是用的经过`Check()`方法剪枝的回溯算法，但效率极低，实测计算3月6日周四的解法用了55min(在我的电脑配置下)
 2. `Check()`方法是用BFS算法(广度优先算法)检查是否有4格连通的小区域，因为没有拼图块是4格大的
+3. 练习面向对象编程
